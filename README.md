@@ -1,5 +1,5 @@
 # FiNetwork
-### Portfolio optimisation based on network analysis
+### Portfolio optimisation based on network cluster analysis
 #### (in progress)
 - [x] Create basic functionality 
 - [ ] Save generated imgs to tmp subfolders
