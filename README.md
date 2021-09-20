@@ -6,4 +6,4 @@
 - [ ] Improve usability (more sklearn-style)
 - [ ] Add notebooks with examples
 - [ ] Add tests
-- [ ] Extend functionality
+- [ ] Extend functionality (GridSearch, more clustering methods/distance metrics etc.)
