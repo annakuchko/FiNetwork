@@ -2,7 +2,7 @@
 ### Portfolio optimisation based on network cluster analysis
 #### (in progress)
 - [x] Create basic functionality 
-- [ ] Save generated imgs to tmp subfolders
+- [x] Save generated imgs to tmp subfolders
 - [ ] Improve usability (more sklearn-style)
 - [ ] Add notebooks with examples
 - [ ] Add tests
