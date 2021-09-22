@@ -21,7 +21,8 @@ class Split:
         self.from_date = from_date
         self.to_date = to_date
     
-    def split_data(self):
+    
+    def transform(self):
         data_dict = self.data_dict
         window_size = self.window_size
         

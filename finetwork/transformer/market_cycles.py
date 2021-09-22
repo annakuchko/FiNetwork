@@ -70,7 +70,7 @@ class MarketCycle:
         
         return data_split, original_data_split
     
-    def _get_criterion(self,
+    def fit(self,
                       theta_min=0.45,
                       theta_max=0.55,
                       return_criterion_vals=False):
@@ -160,8 +160,8 @@ class MarketCycle:
         else:
             return criterion_dict, orig_data
 
-    def _plot_cycles(self):
-        data = self._get_criterion(return_criterion_vals=True)
+    def plot_cycles(self):
+        data = self.fit(return_criterion_vals=True)
         pmc._plot_cycles(data,
                          self.theta_min, 
                      self.theta_max, 
@@ -169,8 +169,7 @@ class MarketCycle:
                      self.benchmark_index)
         
     def _plot_index_with_cycles(self, name=None, save=False):
-        data = self._get_criterion(return_criterion_vals=False)
-        # index_data = self.index_data
+        data = self.fit(return_criterion_vals=False)
         pmc._plot_index_with_market_cycles(data[0],
                                            data[1], 
                                            self.benchmark_index,
