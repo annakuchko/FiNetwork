@@ -18,7 +18,7 @@ class Optimiser:
         n_groups = len(np.unique(list(partition_dict.values())))
         return portfolio_size / n_groups
     
-    def select(self, cluster_dict):
+    def fit(self, cluster_dict):
         select_dict = {}
         for cycle in list(cluster_dict.keys()):
             n = math.floor(self._calculate_n_stocks(cluster_dict[cycle]))
