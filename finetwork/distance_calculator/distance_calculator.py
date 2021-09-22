@@ -9,7 +9,7 @@ class CalculateDistance:
         self.sigma = sigma 
         
         
-    def calculate_distance(self):
+    def transform(self):
         data = self.data
         dist_dict = {}
         for i in data.keys():
