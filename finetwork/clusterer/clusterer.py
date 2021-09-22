@@ -14,7 +14,7 @@ class NetClusterer:
         self.return_validation_scores = return_validation_scores
         self.score_table = None
     
-    def get_clusters(self):
+    def fit(self):
         data_dict = self.data_dict
         method = self.method
         metrics_list = ['calinski_harabasz_index',
