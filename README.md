@@ -10,7 +10,7 @@ Select "selection-investment" horizon based on Wyckoff's stages of market cycle 
 - "and" criterion
 - "or" criterion
 
-Build nework using one of the provided distance metrix:
+Build network using one of the provided distance metrics:
 - Ultrametric Distance based on Pearson Correlation
 - Theil Index based entropic distance
 - Atkinson Index based entropic distance
@@ -28,7 +28,7 @@ Perform cluster analysis choosing from one of the following clustering algorithm
 
 Check the quality of clustering algorithm based on one of the following metrics:
 - Calinski-Harabasz Index
-- Sillhouette Score
+- Silhouette Score
 - Davies Bouldin Score
 
 Select optimal (diversified) stocks portfolio and validate the performance using back-testing. Calculate portfolio performance metrics:
