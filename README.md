@@ -4,10 +4,12 @@ This library was developed as a part of bachelor's thesis project (presentation 
 
 Example usage of functionality is provided in [this notebook]().
 
-Installation:
+### Installation
 ```
 !pip install git+https://github.com/annakuchko/FiNetwork.git#egg=finetwork
 ```
+
+### Main functionality
 
 Select "selection-investment" horizon based on Wyckoff's stages of market cycle using dedicated criterion values:
 - "Trading day" criterion
@@ -53,5 +55,6 @@ Plot [animations](https://github.com/annakuchko/FiNetwork/blob/main/imgs/pearson
 - [x] Save generated imgs to tmp subfolders
 - [x] Improve usability (more sklearn-style)
 - [x] Add notebooks with examples
+- [ ] Add comments for classes
 - [ ] Add tests
 - [ ] Extend functionality (GridSearch, more clustering methods/distance metrics etc.)
