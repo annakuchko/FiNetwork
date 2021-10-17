@@ -4,6 +4,11 @@ This library was developed as a part of bachelor's thesis project (presentation 
 
 Example usage of functionality is provided in [this notebook]().
 
+Installation:
+```
+!pip install git+https://github.com/annakuchko/FiNetwork.git#egg=finetwork
+```
+
 Select "selection-investment" horizon based on Wyckoff's stages of market cycle using dedicated criterion values:
 - "Trading day" criterion
 - "Amplitude" criterion
