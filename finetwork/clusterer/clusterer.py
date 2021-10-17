@@ -4,7 +4,13 @@ from prettytable import PrettyTable
 from collections import defaultdict
 
 class NetClusterer:
-    def __init__(self, method, data_dict, return_validation_scores=True):
+    def __init__(self, 
+                 method, 
+                 data_dict, 
+                 return_validation_scores=True,
+                 normalized=False,
+                 n_clusters=None, 
+                 min_clusters=2):
         self.method = method
         self.data_dict = data_dict
         if method=='None':
@@ -12,11 +18,13 @@ class NetClusterer:
         else:
             pass
         self.return_validation_scores = return_validation_scores
+        self.normalized = normalized 
+        self.n_clusters = n_clusters 
+        self.min_clusters = min_clusters
         self.score_table = None
     
     def fit(self):
         data_dict = self.data_dict
-        method = self.method
         metrics_list = ['calinski_harabasz_index',
                         'sillhouette_score',
                         'davies_bouldin_score']
@@ -27,10 +35,16 @@ class NetClusterer:
         
         for cycle in data_dict.keys():
             if data_dict[cycle].sum().sum()==0:
-                pass
+                G = list(data_dict[cycle].keys())
+                partition[cycle] = {G[i][1]:'Cluster -1' for i in range(len(G))}
             else:
-                cm = _ClusteringMethods(method=method, 
-                                        return_validation_scores=self.return_validation_scores)
+                cm = _ClusteringMethods(
+                    method=self.method, 
+                    normalized=self.normalized, 
+                    n_clusters=self.n_clusters,
+                    return_validation_scores=self.return_validation_scores,
+                    min_clusters=self.min_clusters
+                    )
                 partition[cycle] = cm._fit(data_dict[cycle])
                 if self.return_validation_scores:
                     d = defaultdict(list)
@@ -49,53 +63,3 @@ class NetClusterer:
     def print_scores(self):
         print(f'{self.method} clustering results')
         print(self.score_table)
-    
-        
-            
-    
-if __name__ == '__main__':
-    import numpy as np
-    import networkx as nx
-    import string
-    import random
-    
-    def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
-        return ''.join(random.choice(chars) for _ in range(size))
-
-    
-    G = nx.powerlaw_cluster_graph(100, 99, 1)
-   
-    for (u,v,w) in G.edges(data=True):
-        w['weight'] = abs(np.random.power(1))*abs(np.random.power(1))
-
-    lbl = {i: str(id_generator(5)) for i in G.nodes()}
-    G = nx.relabel_nodes(G, lbl)
-    data_dict = {'2000-2005':nx.convert_matrix.to_pandas_adjacency(G)}
-    G = nx.powerlaw_cluster_graph(100, 99, 1)
-   
-    for (u,v,w) in G.edges(data=True):
-        w['weight'] = abs(np.random.power(1))*abs(np.random.power(1))
-
-    lbl = {i: str(id_generator(5)) for i in G.nodes()}
-    G = nx.relabel_nodes(G, lbl)
-    data_dict['2005-2010'] = nx.convert_matrix.to_pandas_adjacency(G)
-    nc = NetClusterer('SpectralKmeans', data_dict)
-    nc._get_clusters()
-    nc.print_scores()
-    nc = NetClusterer('Kmeans', data_dict)
-    nc._get_clusters()
-    nc.print_scores()
-    nc = NetClusterer('Spectral', data_dict)
-    nc._get_clusters()
-    nc.print_scores()
-    # NetClusterer('Kmedoids', data_dict)._get_clusters()
-    nc = NetClusterer('SpectralGaussianMixture', data_dict)
-    nc._get_clusters()
-    nc.print_scores()
-    nc = NetClusterer('GaussianMixture', data_dict)
-    nc._get_clusters()
-    nc.print_scores()
-    nc = NetClusterer('Hierarchical', data_dict)
-    nc._get_clusters()
-    nc.print_scores()
-         

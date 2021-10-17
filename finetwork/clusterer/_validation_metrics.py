@@ -19,6 +19,7 @@ class _InternalEvaluation:
         else:
             pass
         return score
+    # TODO: implement more clustering metrics 
     # 1
     def _rmsstd():
         pass

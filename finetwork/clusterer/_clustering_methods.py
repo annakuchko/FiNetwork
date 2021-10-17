@@ -9,10 +9,10 @@ class _ClusteringMethods:
     def __init__(self, method='Kmeans', normalized=False, n_clusters=None, params={},
                  return_validation_scores=False,
                  min_clusters=2):
-        self.e = None
-        self.v = None
-        self.A = None
-        self.U = None
+        self.e = None # eigenvalues
+        self.v = None # eigenvectors
+        self.A = None # adjacency
+        self.U = None # filterd eigenvalues based on estimated eigengap
         if method=='None':
             return_validation_scores = False
         else:
