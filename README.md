@@ -8,7 +8,7 @@ This library was developed as a part of bachelor's thesis project (presentation 
 ```
 
 ## Example
-Example usage of functionality is provided in [this notebook]().
+Example usage and functionality is presented [here](https://github.com/annakuchko/FiNetwork/blob/main/examples/finetwork_example_sp500.md).
 
 ## Main functionality
 
