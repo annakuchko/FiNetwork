@@ -316,7 +316,7 @@ gplt.mgif(gif_name='industries_partition',
     duration=1000)
 ```
 
-<img src="industries_partition.gif" width="1000" align="center">
+![gif](industries_partition.gif)
 
 
 ```python
@@ -331,7 +331,7 @@ gplt.mgif(gif_name='clusters_partition',
     duration=1000)
 ```
 
-<img src="clusters_partition.gif" width="1000" align="center">
+![gif](clusters_partition.gif)
 
 Once the optimal clustering method is identified and clustering is conducted optimiser can be used to select the optimal portfolio either randomly, based on industries partition or based on clustering results. It's required to specify the desired number of stocks to select in portfolio. One can repeat the procedure of selection for different sizes of portfolio to be able to assess the general quality of the method employed.
 
