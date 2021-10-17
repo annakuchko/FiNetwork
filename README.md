@@ -7,8 +7,8 @@ This library was developed as a part of bachelor's thesis project (presentation 
 !pip install git+https://github.com/annakuchko/FiNetwork.git#egg=finetwork
 ```
 
-## Documentation & Examples
-Example usage and functionality is presented <b>[here](https://github.com/annakuchko/FiNetwork/blob/main/examples/finetwork_example_sp500.md)</b>.
+## [Documentation & Examples](https://github.com/annakuchko/FiNetwork/blob/main/examples/finetwork_example_sp500.md)</b>
+
 
 ## Main functionality
 
