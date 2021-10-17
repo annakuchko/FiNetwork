@@ -2,13 +2,13 @@
 ### Portfolio optimisation based on network cluster analysis
 This library was developed as a part of bachelor's thesis project (presentation can be found [here](https://github.com/annakuchko/FiNetwork/blob/main/Diploma_eng.pdf)).
 
-## Example
-Example usage of functionality is provided in [this notebook]().
-
 ## Installation
 ```
 !pip install git+https://github.com/annakuchko/FiNetwork.git#egg=finetwork
 ```
+
+## Example
+Example usage of functionality is provided in [this notebook]().
 
 ## Main functionality
 
