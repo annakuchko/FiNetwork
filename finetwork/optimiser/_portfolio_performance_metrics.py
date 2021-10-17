@@ -28,14 +28,3 @@ def calmar_ratio(portfolio_returns):
     max_drawdowns = max_drawdown(portfolio_returns)
     calmars = portfolio_returns.mean() * 255 / abs(max_drawdowns)
     return calmars
-
-if __name__ == '__main__':
-    ret = [1.12, 1.14, 0.98, 0.67, 1.01, 0.998, 1.56, np.nan]
-    ret.append(np.nan)
-    print(ret)
-    ret = pd.Series(ret)-1
-    print(f'volatility: {volatility(ret)}')
-    print(f'sharpe_ratio: {sharpe_ratio(ret)}')
-    print(f'sortino_ratio: {sortino_ratio(ret)}')
-    print(f'max_drawdown: {max_drawdown(ret)}')
-    print(f'calmar_ratio: {calmar_ratio(ret)}')

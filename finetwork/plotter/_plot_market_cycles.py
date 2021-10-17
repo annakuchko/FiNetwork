@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 import json
 from matplotlib.lines import Line2D
 import datetime
 
-def plot_cycles(data,
+def _plot_cycles(data,
                  theta_min, theta_max, window, benchmark_index):
         
         rd_data = data[0]
@@ -46,8 +47,11 @@ def plot_cycles(data,
                  color='r',
                  fontsize=8)    
         
-        ax1.set_ylim([max([min(rd_data.values())-0.075,0]), 
-                      min([max(rd_data.values())+0.075,1])])
+        rdd = np.array(list(rd_data.values()))
+        rdd = rdd[(rdd != np.inf) & (rdd!= -np.inf)]
+        
+        ax1.set_ylim([max([np.nanmin(rdd)-0.075,0]), 
+                      min([np.nanmax(rdd)+0.075,1])])
         ax1.set_xlim([min(date_range),max(date_range)])
         ax1.set_title('Trading day criterion', fontsize=11)
 
@@ -77,9 +81,12 @@ def plot_cycles(data,
                            edgecolor='r',
                            pad=0.75),
                  color='r',
-                 fontsize=8)    
-        ax2.set_ylim([max([min(rf_data.values())-0.075,0]), 
-                      min([max(rf_data.values())+0.075,1])])
+                 fontsize=8)
+
+        rfd = np.array(list(rf_data.values()))
+        rfd = rfd[(rfd != np.inf) & (rfd!= -np.inf)]
+        ax2.set_ylim([max([np.nanmin(rfd)-0.075,0]), 
+                      min([np.nanmax(rfd)+0.075,1])])
         ax2.set_xlim([min(date_range),max(date_range)])
         ax2.set_title('Amplitude criterion', fontsize=11)
 
@@ -100,7 +107,7 @@ def _get_dates_range(dates_range_list):
         
     return dates_range
 
-def plot_index_with_market_cycles(data, 
+def _plot_index_with_market_cycles(data, 
                                    orig_data, 
                                    benchmark_index,
                                    criterion,

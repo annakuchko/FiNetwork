@@ -1,3 +1,4 @@
+# TODO: plot criterion values kde
 import seaborn as sns
 import matplotlib.pyplot as plt
 

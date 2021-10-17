@@ -52,24 +52,3 @@ class _FilterNetwork:
     
         return H
 
-if __name__ == "__main__":
-    import numpy as np
-    import random
-    n = 100
-    m = 2
-    # random.seed(2021)
-    G = nx.generators.barabasi_albert_graph(n, m)
-    for (u, v) in G.edges():
-        G.edges[u,v]['weight'] = np.abs(random.gauss(0,1))
-    G_new = _FilterNetwork(G, method='pmfg')._filter()
-    nx.draw_circular(G_new,
-            node_color="b",
-            node_size=10, 
-            with_labels=True)
-    # from plotter.plot_circus import CircosPlot
-    # CircosPlot(G_new, 
-    #                node_labels=True, 
-    #                node_label_layout="rotation",
-    #                fontsize=10).draw(save=False)
-    
-    

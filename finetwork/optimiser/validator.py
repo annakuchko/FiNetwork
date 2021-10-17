@@ -45,6 +45,6 @@ class Validator:
              'sortino_ratio': sortino_ratio(returns),
              'max_drawdown': max_drawdown(returns)}   
         return performance_metrics
-    
+    # TODO: plot valdation aka backtesting
     def _plot_validation(self):
         pass

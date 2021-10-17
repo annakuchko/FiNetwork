@@ -12,7 +12,9 @@ class MarketCycle:
                  country,
                  market,
                  criterion='trading_day',
-                 window=6):
+                 window=6,
+                 theta_min=0.45,
+                 theta_max=0.55):
         
         self.from_date = from_date
         self.to_date = to_date
@@ -21,8 +23,8 @@ class MarketCycle:
         self.market = market
         self.window = window
         self.criterion = criterion
-        self.theta_min = None
-        self.theta_max = None
+        self.theta_min = theta_min
+        self.theta_max = theta_max
         self.index_data = None
         
     def _import_index(self):
@@ -70,13 +72,10 @@ class MarketCycle:
         
         return data_split, original_data_split
     
-    def fit(self,
-                      theta_min=0.45,
-                      theta_max=0.55,
-                      return_criterion_vals=False):
+    def fit(self, return_criterion_vals=False):
         
-        self.theta_min = theta_min
-        self.theta_max = theta_max
+        theta_min = self.theta_min
+        theta_max = self.theta_max
         
         dat = self._split_data()
         data = dat[0]
@@ -168,7 +167,7 @@ class MarketCycle:
                      self.window, 
                      self.benchmark_index)
         
-    def _plot_index_with_cycles(self, name=None, save=False):
+    def plot_index_with_cycles(self, name=None, save=False):
         data = self.fit(return_criterion_vals=False)
         pmc._plot_index_with_market_cycles(data[0],
                                            data[1], 

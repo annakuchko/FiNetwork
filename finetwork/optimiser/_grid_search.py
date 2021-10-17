@@ -1,4 +1,4 @@
-# Grid Search
+# TODO: Implement Grid Search
 
 class GridSearch:
     def __init__(self, model, params_dict):
@@ -6,7 +6,3 @@ class GridSearch:
         self.params_dict = params_dict
         
         
-        
-        
-if __name__ == "__main__":
-    params = {''}

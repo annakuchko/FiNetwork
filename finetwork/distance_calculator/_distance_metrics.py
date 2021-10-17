@@ -31,7 +31,7 @@ class _Metrics:
             distance_matrix = self._dtw_based()  
             
         elif method == 'theil_index':
-            distance_matrix = self.theil_based()
+            distance_matrix = self._theil_based()
         
         elif method == 'atkinson_index':
             distance_matrix = self._theil_based(atkinson=True)
@@ -83,7 +83,7 @@ class _Metrics:
             index_metric = 1-np.exp(-index_metric) # Atkinson index
         else:
             pass
-        distance_matrix = self.manhattan_distance(index_metric)
+        distance_matrix = self._manhattan_distance(index_metric)
         
         return distance_matrix
     

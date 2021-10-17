@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+# TODO: plot spectrum
+
 # fig = plt.figure(figsize=[18, 6])
 # ax1 = plt.subplot(131)
 # plt.plot(e)

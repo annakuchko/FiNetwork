@@ -1,8 +1,10 @@
-import matplotlib.pyplot as plt
 from finetwork.plotter._plot_circus import _CircosPlot
-from finetwork.transformer import NetTransformer, to_graph
+from finetwork.plotter._make_gif import _mgif
 import datetime
 from pathlib import Path
+import networkx as nx
+import numpy as np
+
 
 class Plotter:
     def __init__(self, 
@@ -28,6 +30,7 @@ class Plotter:
             self.name = name
         else:
             self.name = str(datetime.datetime.now().time()).replace(":", "_")
+
     
     def plot(self):
         plot_type = self.plot_type
@@ -35,7 +38,9 @@ class Plotter:
         data = self.data
         for period in data.keys():
             if plot_type == 'circus':
-                self.plot_circus(data[period], period, params)
+                self.plot_circus(data[period], period)
+                
+# TODO: implement other types of plots
             
             elif plot_type == 'adjacency':
                 self.plot_adjacency(data[period], params, self._count)
@@ -45,10 +50,10 @@ class Plotter:
             
             elif plot_type == 'degree':
                 self.plot_degree(data[period], params, self._count)
+                
             self._count += 1
             
-    def plot_circus(self, data, period, params=None):
-        params = self.params
+    def plot_circus(self, data, period):
         partition = self.partition[period]
         path = self.path
         if self._count==1:
@@ -71,8 +76,8 @@ class Plotter:
                 partition=partition,
                 label_order=self._order
                 )
-                    
-        figname=f'test_figure_{self.name}_10{self._count}'
+            
+        figname=f'test_figure_{self.name}_{self._count:04d}'
         if path != None:
             figname = str(path) + '/' + figname
             Path(path).mkdir(parents=True, exist_ok=True)
@@ -85,3 +90,6 @@ class Plotter:
             figname=figname,
             title=f'Graph for period {period}'
             )
+        
+    def mgif(self, gif_name=None, duration=1000):
+        _mgif(gif_name=gif_name, duration=duration, path=self.path)
