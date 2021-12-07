@@ -51,13 +51,3 @@ Select optimal (diversified) stocks portfolio and validate the performance using
 You can also select portfolio based on industries partition or randomly.
 
 Plot [animations](https://github.com/annakuchko/FiNetwork/blob/main/imgs/pearson_Spectral_clustering_partition.gif) of changing market structure across different stages of market cycle.
-
-
-#### (in progress)
-- [x] Create basic functionality 
-- [x] Save generated imgs to tmp subfolders
-- [x] Improve usability (more sklearn-style)
-- [x] Add notebooks with examples
-- [ ] Add comments for classes
-- [ ] Add tests
-- [ ] Extend functionality (GridSearch, more clustering methods/distance metrics etc.)
